@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <title>Assignment 1</title>
+  </head>
+  <body>
+      <h1>Curriculum Vitae</h1>
+      <h6 class="name0">Hover on Image for Summary</h6><br>
+    <div class="pic">
+       
+        <img class="photo" src=imgs/1.jpg> 
+        <p class="tooltiptext">I'm a Computer Science graduate student at Arizona State University. I have experience in Data Visualisation owing to the projects I have undertaken during my Master's degree. I have also worked as an intern at IYC World SoftInfrastructures Pvt. Ltd. where my responsibilities included developing an online admissions system for educational institutions. I possess good analytical and problem solving skills. I am dedicated and willing to learn from my experiences. I posses good communication skills, attention to detail and am a team player. I am looking for an opportunity to gain work experience, enhance my knowledge and contribute my skills. </p></img>
+       
+  
+    </div>
+    <h2 class="name">Neha Tandon</h2><br>
+    <br>
+  
+    <h3 class=name4>Master's Student in Computer Science </h3>
+    <h3 class=name5> Actively seeking Summer'20/ Co-Op Internships</h3>
+    <br>
+    <h4 class="name2">Shiv Nadar University, India(Bachelor's)    May'19</h4>
+
+    <h4 class="name3">Arizona State University(Master's)        May'21</h4>
+
+  <div class="exp">
+    <h2>Experience</h2>
+    <svg  class="hi" width="1250" height="1450">
+      <g >
+          <rect  class="rect1"  x="60" y="160" width="150" height="100" fill="aqua" > </rect> 
+          <text  x="90" y="210"  font-size="12" fill="black">Web-App  </text>
+          <text x="90" y="230"  font-size="12" fill="black">Development</text>
+          <text class="tool">hi </text>
+       
+          
+         
+        </g>
+        <g>
+          <rect x="280" y="40" width="150" height="100" fill="aqua" />
+          <text x="310" y="90"  font-size="12" fill="black">Internet of Things </text>
+          
+        </g>
+        <g>
+          <rect x="480" y="170" width="150" height="100" fill="aqua" />
+          <text x="484" y="220"  font-size="12" fill="black">Location Recommendation</text>
+          
+        </g>
+        <g>
+          <rect x="690" y="30" width="150" height="100" fill="aqua" />
+          <text x="710" y="80"  font-size="12" fill="black">Student Co-ordinator</text>
+          
+        </g>
+        </svg>
+  </div>
+  <div class="contact">
+    <h2 class="name7">Contact Details</h2>
+    <h4 class="name8">neha.tandon1996@gmail.com</h4>
+    <h4 class="name9">https://www.linkedin.com/in/neha-tandon-277550136/</h4>
+
+  </div>
+    <div class="side">
+      <h2>Technical Skills</h2>
+    
+    </div>
+    
+  </body>
+    <script src="scripts/d3.v4.js"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript">
+
+      dataset = {
+          "children": [{"Name":"C","Count":219},
+              {"Name":"C++","Count":200},
+              {"Name":"Java","Count":100},
+              {"Name":"Python","Count":100},
+              {"Name":"HTML","Count":200},
+              {"Name":"SQL","Count":250},
+              {"Name":"Javascript","Count":150},
+              {"Name":"D3.js","Count":150},
+              {"Name":"Tableau","Count":200},
+      ]
+      };
+
+      var diameter = 600;
+      var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+      var bubble = d3.pack(dataset)
+          .size([diameter, diameter])
+          .padding(1.5);
+
+      var svg = d3.select("body")
+          .append("svg")
+          .attr("width", diameter)
+          .attr("height", diameter)
+          .attr("class", "bubble").attr("transform", "translate(590, -170) rotate(0)");
+
+      var nodes = d3.hierarchy(dataset)
+          .sum(function(d) { return d.Count; });
+
+      var node = svg.selectAll(".node")
+          .data(bubble(nodes).descendants())
+          .enter()
+          .filter(function(d){
+              return  !d.children
+          })
+          .append("g")
+          .attr("class", "node")
+          .attr("transform", function(d) {
+              return "translate(" + d.x + "," + d.y + ")";
+          });
+
+      node.append("title")
+          .text(function(d) {
+              return d.Name  ;
+          });
+  
+          var toggle=true;
+
+      node.append("circle")
+          .attr("r", function(d) {
+              return d.r;
+          })
+          .style("fill", function(d,i) {
+              return color(i);
+          });
+       
+
+      node.append("text")
+          .attr("dy", ".2em")
+          .style("text-anchor", "middle")
+          .text(function(d) {
+              return d.data.Name.substring(0, d.r / 3);
+          })
+          .attr("font-family", "sans-serif")
+          .attr("font-size", function(d){
+              return d.r/5;
+          })
+          .attr("fill", "white");
+          node.on("mouseover",function(d){
+      if(toggle == true){
+      node.style("opacity","0.4");
+      d3.select(this).style("opacity", "1.0");
+      toggle = false;
+      //drawLineChart(d.properties.name);
+    }
+    else{
+      node.style("opacity","1.0");
+      toggle = true;
+    }
+  })
+    
+    //      function selected() {
+    //  if(d3.select('.selected').classed('selected', false)){
+    //   d3.select('.selected').classed('selected', false).style("opacity",0.2);
+    //  }
+    // d3.select(this).classed('selected', true); }
+
+
+      // node.append("text")
+      //     .attr("dy", "1.3em")
+      //     .style("text-anchor", "middle")
+      //     .text(function(d) {
+      //         return d.data.Count;
+      //     })
+      //     .attr("font-family",  "Gill Sans", "Gill Sans MT")
+      //     .attr("font-size", function(d){
+      //         return d.r/5;
+      //     })
+      //     .attr("fill", "white");
+
+      d3.select(self.frameElement)
+          .style("height", diameter + "px");
+          </script>
+     
+ 
+</html>
