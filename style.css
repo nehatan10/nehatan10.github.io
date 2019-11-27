@@ -1,0 +1,255 @@
+body, html {
+  width: 100%;
+  height: 100%;
+}
+.selected{ opacity: 1.0;
+}
+svg {
+  width:100%;
+  height:100%;
+  float: center;
+  
+}
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: #F1F3F3;
+  stroke: #6F257F;
+  stroke-width: 5px;
+}
+  
+.hover-line {
+  stroke: #6F257F;
+  stroke-width: 2px;
+  stroke-dasharray: 3,3;
+}
+div.tooltip { 
+          position: absolute;     
+          text-align: center;     
+          width: 150px;          
+          height: 34px;         
+          padding: 2px;       
+          font: 12px sans-serif;    
+          background: #fff; 
+          border: 0px;        
+          pointer-events: none; 
+}
+.legend {
+	position:absolute;
+	left:200px;
+	top:450px;}
+
+#chart{
+  position: relative;
+  top: 4%;
+Bottom:40%;
+  padding-top: 5px;
+}
+
+circle.airbnb {
+  /* fill: #e00007; */
+  opacity: 1.0;
+}
+
+.axis {
+  font-family: arial;
+  font-size: 0.7em;
+}
+
+text {
+  fill: black;
+  stroke: none;
+  position: relative;
+  left: 20%;
+  top: 3%;
+  font-family: 'futura';
+}
+
+.label {
+  font-size: 1.5em;
+}
+
+path {
+  /* fill: none; */
+  stroke: black;
+  stroke-width: 2px;
+}
+.tick {
+  fill: none;
+  stroke: black;
+}
+
+circle {
+  opacity: 0.9;
+  stroke: none;
+  /* fill: red; */
+}
+
+.line {
+  fill: none;
+  stroke: #e00007;
+  stroke-width: 1px;
+}
+
+.line2 {
+  fill: none;
+  stroke: #e00007;;
+  stroke-width: 2px;
+}
+
+/* .line2 {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+} */
+.name0{
+  top: 50px;
+  left:70px;
+  position: absolute;
+  color: crimson;
+}
+
+.photo{
+     width: 150px;
+     height:180px;
+     left:100px;
+     top:20px;
+     position:relative;
+   
+
+}
+.pic {
+  position: relative;
+  display: inline-block;
+  
+}
+.rect1 {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.pic .tooltiptext {
+  top: -25px;
+  left: 180%;
+  visibility: hidden;
+  width: 500px;
+  height: 180px;
+  background-color:grey;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 2;
+}
+
+.pic:hover .tooltiptext {
+  visibility: visible;
+}
+.name{
+  position:absolute;
+
+left: 110px;
+top: 320px;
+}
+.name4{
+  position:absolute;
+
+left: 110px;
+top: 370px;
+}
+.name5{
+  position:absolute;
+
+left: 110px;
+top: 395px;
+}
+
+.name2{
+  position:absolute;
+
+left: 110px;
+top: 440px;
+color: blue;
+}
+.name3{
+  position:absolute;
+
+left: 110px;
+top: 490px;
+color: blue;
+}
+svg{
+  right: 110px;
+
+
+}
+.side{
+  right:210px;
+  top:80px;
+  position:absolute;
+  color:purple;
+}
+.exp{
+  left:110px;
+  top:650px;
+  position:absolute;
+  color:purple;
+}
+.contact{
+  left:30px;
+  top:420px;
+  position:absolute;
+  color:purple;
+  width: 1000px;
+height:300px;
+}
+.name7{
+  left:80px;
+  top:710px;
+  position:absolute;
+  color:blue;
+
+}
+.name8{
+  left:80px;
+  top:750px;
+  position:absolute;
+  color:blue;
+
+}
+.name9{
+  left:80px;
+  top:780px;
+  position:absolute;
+  color:blue;
+
+}
+.selected{ opacity: 1.0;
+}
+.rect1 .tool{
+  bottom: 5px;
+  left: 180%;
+  visibility: hidden;
+  width: 500px;
+  height: 180px;
+  background-color:grey;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.rect1:hover .tool {
+  visibility: visible;
+}
